@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Wen in 1996]]></title>
+  <link href="http://iwillwen.github.com/atom.xml" rel="self"/>
+  <link href="http://iwillwen.github.com/"/>
+  <updated>2013-04-25T17:08:43+08:00</updated>
+  <id>http://iwillwen.github.com/</id>
+  <author>
+    <name><![CDATA[Will Wen Gunn]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在 Ubuntu 上安裝 Writedown]]></title>
+    <link href="http://iwillwen.github.com/blog/2013/04/25/zai-ubuntu-shang-an-zhuang-writedown/"/>
+    <updated>2013-04-25T16:58:00+08:00</updated>
+    <id>http://iwillwen.github.com/blog/2013/04/25/zai-ubuntu-shang-an-zhuang-writedown</id>
+    <content type="html"><![CDATA[<p>前些時間 @sofish 大神發佈了一個基於 <a href="https://github.com/rogerwang/node-webkit">node-webkit</a> 的跨平臺 Markdown 編輯器 <a href="https://github.com/sofish/writedown">Writedown</a>。<br/>
+但是這貨在 Ubuntu(或是Linux?) 下，會出現 localStorage 的無法修改的情況。剛好我最近也對 <a href="http://nano.im1996.com/">NanoDB</a> 進行更新，支持了 Node.js 環境，可以進行文件存儲。<br/>
+可 sofish 只在 Github 上放出了 Mac OS X 下的安裝包，如果要在 Ubuntu 下安裝 Writedown， 你就需要自己進行安裝。</p>
+
+<!-- more -->
+
+
+<h2>1. 下載源碼</h2>
+
+<p>你需要從 Github 上克隆(clone) Writedown 的源碼。</p>
+
+<figure class='code'><figcaption><span>Fetch the source </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/sofish/writedown.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然後從我的代碼庫中獲取更新。</p>
+
+<figure class='code'><figcaption><span>Fetch the patch </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ wget https://github.com/sofish/writedown/pull/1.patch
+</span><span class='line'>$ git am 1.patch</span></code></pre></td></tr></table></div></figure>
+
+
+<p>當然你也可以直接從我的 Fork Repo 中下載更新後的源碼。</p>
+
+<figure class='code'><figcaption><span>Fetch the patched source </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/iwillwen/writedown.git</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>2. 安裝 node-webkit</h2>
+
+<p>你需要安裝 node-webkit 以運行 Writedown。</p>
+
+<p>從 node-webkit 的 Github Repo 上獲得 Linux(x86/x64) 的壓縮文件，並建立鏈接。</p>
+
+<figure class='code'><figcaption><span>Install the node-webkit </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd /tmp
+</span><span class='line'>$ wget http://..../node-webkit-...tar.gz
+</span><span class='line'>$ tar xvzf node-webkit...tar.gz
+</span><span class='line'>$ cd node-webkit...
+</span><span class='line'>$ sudo mkdir -p /usr/local/bin/node-webkit
+</span><span class='line'>$ sudo mv ./* /usr/local/bin/node-webkit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>現在已經安裝好了 node-webkit。</p>
+
+<figure class='code'><figcaption><span>run the node-webkit </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ nw</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://ww2.sinaimg.cn/large/a74ecc4cjw1e41z27bzmij20ji0dc750.jpg" alt="node-webkit" /></p>
+
+<h2>3. 安裝 Writedown</h2>
+
+<p>我們回到剛纔下載 Writedown 的文件夾，並把它複製到我們的程序目錄下。</p>
+
+<figure class='code'><figcaption><span>Install Writedown </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd /path/to/writedown
+</span><span class='line'>$ sudo make install</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<p>現在就能在 Applications 中看到 Writedown 了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New in production(UPDATED)]]></title>
+    <link href="http://iwillwen.github.com/blog/2012/11/17/new-in-production/"/>
+    <updated>2012-11-17T22:13:00+08:00</updated>
+    <id>http://iwillwen.github.com/blog/2012/11/17/new-in-production</id>
+    <content type="html"><![CDATA[<blockquote><p>在網友@123 的幫助下，新的博客和域名成功投入使用，再次表示衷心的感謝！（鼓掌。。。。</p></blockquote>
+
+<p>就在一個月前，我第一次成為了商業產品的聯合創始人，與此同時，我也有了一個新的頭銜：“文化傳媒人”。何出此言？因為這個產品就是一個文化傳媒網站，而主題就是<a href="http://zh.wikipedia.org/wiki/Cosplay">Cosplay</a>。<br/>
+而看到這裡，你可能會這樣問：</p>
+
+<blockquote><p>Q: 這篇文章的標題是“New in production”，但你卻在說“The new production”。博主你也是一個標題黨？<br/>
+A: 感謝你的提問！很可惜，不是的。我這篇只是一個印子，而真正的內容，是要從下一篇文章開始。</p></blockquote>
+
+<!-- more -->
+
+
+<p>如果你接觸過甚至是十分熟悉Cosplay，你有可能會知道來自韓國<a href="http://naver.com">Naver</a>在<a href="http://baike.baidu.com/view/1586786.htm">11區</a>旗下的<a href="http://www.nhncorp.jp/">NHN Japan</a>所投資的<a href="http://curecos.com">Cure</a>及其國際站<a href="http://worldcosplay.net">WorldCosplay</a>。<br/>
+熟悉小問的朋友都知道，我是一個十足的動漫迷、技術人和攝影愛好者。我憑著一個Cosplay攝影師和Cosplay粉絲的經驗，我覺得上述的兩個網站的用戶體驗都接近於“<a href="http://www.iciba.com/impatient">Impatient</a>”(以往11區的網站都有這樣的毛病，但近幾年有所改善)。作為一個技術人，則更不能容忍這樣的<a href="http://zh.wikipedia.org/wiki/%E4%BD%BF%E7%94%A8%E8%80%85%E7%B6%93%E9%A9%97">UX</a>。<br/>
+於是乎在同是“漫宅+技術人+攝影師”的<a href="http://im1984.com">Mark</a>的推動下，找來了我們的專業人員——<a href="https://www.facebook.com/terllock.nicola">狼子</a>，開始籌畫“Koicos”這個東西。</p>
+
+<p>而Koicos這個東西，正是與Cure或是WorldCosplay都存在巨大差別的產品。原因有以下幾點：<br/>
+1. 我們是專業的技術工程師。相信你能夠來到這裡，你一定瞭解我的一些歷史。而我們負責前端頁面實現是在國內ACG技術宅圈子裏有一定名氣的<a href="http://mouto.org/">卜卜口</a>擔任前端頁面工程師(主要負責HTML[5]、CSS)，而與我一齊負責前後端JavaScript開發的是芋頭(阿里花名 天祁)，前<a href="http://www.taobao.com">淘寶網</a>、<a href="http://www.tmall.com">天貓</a>和<a href="http://www.tianpin.com/">**網</a>的前端开发经理，以及來自<a href="http://www.fosu.edu.cn/">佛山大學</a>的<a href="https://plus.google.com/u/0/117324733931608718228">土匪</a>(曾多次獲得國內各級ACM大賽獎項)擔任<a href="http://www.python.org/">Python</a>和數據工程師。<br/>
+2. 我們也是用戶。在我們的團隊中，除了芋頭以外，其餘都是程度各不同<a href="http://zh.wikipedia.org/wiki/OTAKU">Otaku</a>。而除了土匪，其餘都是攝影愛好者(特別是狼子這貨，手中的是<a href="http://product.pchome.net/digital_dc_leica_me/375446.html">徠卡M-E</a>、<a href="http://product.pconline.com.cn/dc/leica/164349.html">徠卡M8</a>和哈蘇500CM，純土豪一隻)。所以我們既是相關人員，也是目標用戶。身為用戶，我們最瞭解我們的用戶需要什麼，我們也能夠憑著我們的能力把這些需求實現出来。<br/>
+3. 近乎“真空”的國內目標市場。為什麼我們有如此的信息來搞這個東西？因為我們已經做了大量的調查：在國內，上述的Cure和WorldCosplay佔有的市場份額，只有不到10%。而我們不貪求太多，我們只想要國內30%的市場份額，就已經足夠我們實現自負盈虧了。</p>
+
+<hr />
+
+<p>再來說說Cosplay在國內的發展情況。</p>
+
+<p>我們來看看我在截稿之前在<a href="http://shu.taobao.com">淘寶指數</a>得到的關於“Cosplay”的相關數據。</p>
+
+<p><img src="http://i4.minus.com/jbmqII2sy4Rrk1.png" alt="淘寶指數" /><br/>
+從圖表中不難看出，國內Cosplay文化在近兩年內呈飛速發展趨勢。</p>
+
+<p>再來看看，這些消費用戶中的消費水平，單件物品(如Cosplay服裝、假髮、道具等)的價格，普遍在100-300人民幣之間。這足以證明，我們的目標用戶的消費水平是十分高的。而瞭解Cosplay的你，一定知道其中原因。<br/>
+<img src="http://i.minus.com/jjjH1BdWNqLrU.png" alt="人均消費" /></p>
+
+<p>輕輕地打下廣告，我們廣州地區Cosplay圈子中有兩家Cosplay專營店是十分受Cosplay玩家歡迎的，它們分別是<a href="http://shop33510170.taobao.com/">阿當當公主動漫星城點</a>和<a href="http://shop33868339.taobao.com/">宵月家的范特西小羊窩</a>。(為什麼要介紹它們，隨後你便瞭解。)</p>
+
+<hr />
+
+<p>我們再談談Koicos所用到的技術。<br/>
+你肯定知道小問我是一個十足的Noder(<a href="http://nodejs.org">Node.js</a> User)。固然我們Koicos所使用的主要技術也是Node.js啦~(謎之音:這什麼邏輯？..=。=)</p>
+
+<blockquote><p>好吧。。好久不更新了，以爲最近實在太忙：項目開發，考試，拍照（你明明是去玩吧！）等等壓在身上=。=好啦，今天抽空出來補坑吧。</p></blockquote>
+
+<p>認識小問的人都知道，我是在 Node.js 上開發了 webjs 而有所名聲的，而且 webjs 在前一段時間也開始進入了商用階段(因爲某種原因，所以不能向外公佈)。現在 webjs 也不知道爲啥，進入了停工階段，沒有什麼大的 Bug 需要去 fix，功能性方面因爲採用了較爲開放的模塊化開發方式，而且 API 也已經經過了好幾次變革，現在 webjs 也差不多進入 Stable 階段了。（雖然連版本都還沒有到v1.0_(:3」∠)_）</p>
+
+<p>先繼續來說說 Koicos 在後端方面的開發情況。我們剛開始所採用的系統架構是這樣的：</p>
+
+<p><img src="http://i3.minus.com/icw6bufVOLaAE.png" alt="v0.0.1 System" /></p>
+
+<p>程序方面平臺方面：Node.js 採用 webjs 框架作爲 Web Server Cluster Platform (呆會會解釋爲什麼是 Cluster)，Python 作爲 Data Analytics Worker Platform；數據庫方面：MongoDB 配合 Node.js 作爲頂層操作數據庫，PostgreSQL 配合 Python 作爲底層的數據固實、分析數據庫，Redis 配合 Node.js 作爲 Cache 和 Buffer Store。</p>
+
+<p>而在 Web Server 中，我們有一個叫做 Cluster 的東西，這個也是我們在項目業務實現中，原創的一種架構技術：根據頁面結構，把頁面內容拆分成若干內容模塊。每一個內容模塊，我們都稱之爲一個 Packet，而我們在後端有若干個 Packet Server。當然並非一個 Packet 就對應擁有一個獨立的 Packet Server，而是同一類型的 Packet 就對應由一個 Packet Server 進行處理。這些 Packet Server 通過 HTTP 協議進行通訊。
+而當時，我們總共有以下幾個 Packet Server：</p>
+
+<ul>
+<li>Main，負責預處理所有來自客戶端的請求，並向 Assign 及其他 Packet Server 發送處理信號。</li>
+<li>Assigin，Web Server Cluster 的神經中樞，負責通過分析來自 Main 的處理請求，創建隨機 Hash，並向其他 Packet Server 發送處理信號。</li>
+<li>Photos，負責處理原子項目照片的相關寫入請求，並根據來自 Assign Server 的處理信號，生成所需的 UI。</li>
+<li>Info，負責處理所有信息相關的寫入請求，並根據來自 Assign Server 的處理信號，生成所需的 UI。</li>
+<li>Users，負責處理用戶系統的相關寫入請求，並根據來自 Assign Server 的處理信號，生成所需的 UI。</li>
+<li>Relations，負責處理所有原子關係的相關寫入請求。</li>
+</ul>
+
+
+<p>如此，當一個用戶在瀏覽器中輸入 http://koicos.com，並按下回車的時候，就經歷了如此技術過程：<br/>
+1. Main Server 得到來自客戶端的請求<br/>
+2. Main Server 向 Assign Server 發出經過預處理的請求<br/>
+3. Assign Server 創建一個隨機 Hash，並向需要提供數據的 Packet Server 發出處理信號<br/>
+4. 各 Packet Server 接收到信號後，根據信號中的參數，開始從 MongoDB 查找相關數據<br/>
+5. 完成數據庫讀取以後，根據客戶端的相關信息，生成 HTML 或 JSON(P)，並存到 Redis 中<br/>
+6. 客戶端在得到 Layout 後就開始渲染 Layout DOM，並運行 JavaScript，客戶端異步向各 Packet Server 請求 UI<br/>
+7. 各 Packet Server 得到來自客戶端的請求後，根據 Hash，將之前在 Redis 中準備好的數據返回給客戶端<br/>
+8. 客戶端完成所有內容模塊的加載，UI 渲染完成</p>
+
+<p>而後來發現，因爲模塊之間的通訊是採用 HTTP 的方式的，這樣一次頁面加載，服務器集羣就需要建立5次以上的 HTTP Connection，這樣的開銷相當大，無論從 CPU 或內存上都十分不划算。
+於是我們想到了我們一直在使用的 Redis 有着一個很獨特的 Feature &#8211; Pub/Sub Mode，我們可以使用這個功能，把 Redis 看作是一個消息集散系統。我們先來看看官方的 Node.js DEMO。</p>
+
+<figure class='code'><figcaption><span>Node.js Redis DEMO </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">redis</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;redis&quot;</span><span class="p">),</span>
+</span><span class='line'>    <span class="nx">client1</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">(),</span> <span class="nx">client2</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">(),</span>
+</span><span class='line'>    <span class="nx">msg_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">client1</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;subscribe&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">channel</span><span class="p">,</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">client2</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s2">&quot;a nice channel&quot;</span><span class="p">,</span> <span class="s2">&quot;I am sending a message.&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">client2</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s2">&quot;a nice channel&quot;</span><span class="p">,</span> <span class="s2">&quot;I am sending a second message.&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">client2</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s2">&quot;a nice channel&quot;</span><span class="p">,</span> <span class="s2">&quot;I am sending my last message.&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">client1</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">channel</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;client1 channel &quot;</span> <span class="o">+</span> <span class="nx">channel</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">msg_count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">msg_count</span> <span class="o">===</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">client1</span><span class="p">.</span><span class="nx">unsubscribe</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">client1</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">client2</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">client1</span><span class="p">.</span><span class="nx">incr</span><span class="p">(</span><span class="s2">&quot;did a thing&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">client1</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s2">&quot;a nice channel&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是因爲 Redis Sub/Pub Mode 自身的限制(有待研究)，同一個 Redis Client 在 Subscribe 以後不能運行其他常規的命令，如 Publish, SET, GET等。<br/>
+於是我們只能夠像這樣，建立三個 Client 以滿足需求。</p>
+
+<figure class='code'><figcaption><span>Sub/Pub/Store Client  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">redis</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;redis&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">eventproxy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;eventproxy&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">subClient</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">pubClient</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">storeClient</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">binder</span> <span class="o">=</span> <span class="nx">eventproxy</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+</span><span class='line'>  <span class="s1">&#39;subClient&#39;</span><span class="p">,</span> <span class="s1">&#39;pubClient&#39;</span><span class="p">,</span> <span class="s1">&#39;storeClient&#39;</span><span class="p">,</span>
+</span><span class='line'>  <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="c1">// All clients are ready.</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">subClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="nx">binder</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="s1">&#39;subClient&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="nx">pubClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="nx">binder</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="s1">&#39;pubClient&#39;</span><span class="p">));</span>
+</span><span class='line'><span class="nx">storeClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span> <span class="nx">binder</span><span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="s1">&#39;storeClient&#39;</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這樣，我們就可以通過讓各 Packet Server 連接到同一個 Redis 服務器上，並讓需要的 Client 訂閱需要的 Channel：比如 Assign Server 需要向 Photos Server 發送圖片牆處理信號，這樣我就可以讓 Photos Server 的 <code>subClient</code> 訂閱 <code>wall</code> Channel。</p>
+
+<figure class='code'><figcaption><span>Redis Pub/Sub Communication  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/* Assign Server */</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">pubClient</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">();</span>
+</span><span class='line'><span class="nx">pubClient</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;wall&#39;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+</span><span class='line'>  <span class="cm">/* ... */</span>
+</span><span class='line'><span class="p">}));</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Photos */</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">subClient</span> <span class="o">=</span> <span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">();</span>
+</span><span class='line'><span class="nx">subClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;wall&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Wall Signal Handler */</span>
+</span><span class='line'><span class="nx">subClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">channel</span> <span class="o">!==</span> <span class="s1">&#39;wall&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+</span><span class='line'>  <span class="cm">/* Do something with query */</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>而且在數據庫方面，原先我們採用的桂林同學的 <a href="https://github.com/kissjs/node-mongoskin">mongoskin</a> 來作爲 MongoDB 的驅動器，但我們也發現，如果我們的業務需要對幾個表，也就是 MongoDB 中的 Collection 同時進行聯合查詢或 JOIN，這在 MongoDB 中是非常不科學的。因爲 MongoDB 在 Node.js 需要對每一個所需要用到的 Collection 進行實例化，也就是說我們若需要對幾個 Collection 進行 JOIN 的話，只能通過 JavaScript 的程序邏輯進行嵌套查詢。這樣每一次的查詢都要單獨發送一次查詢請求，如果業務複雜，程序的開銷相當龐大。而我們就改而將 Node.js 中的 MongoDB 直接改爲同 Python 一齊使用 PostgreSQL，也能節省服務器空間。<br/>
+這樣之前複雜的程序邏輯，直接用我們所熟悉的 SQL 語句，一句話搞定了～</p>
+
+<p><img src="http://ww1.sinaimg.cn/mw690/7287333fjw1e1dvrg9p6aj.jpg" alt="MongoDB Querying VS SQL" /></p>
+
+<p>於是乎，我們的系統就成了這樣樣子：<br/>
+<img src="http://i5.minus.com/itDDw09lnr8ob.png" alt="v0.0.2 System" /></p>
+
+<hr />
+
+<p>OK，今天就寫到這了。下次來分享一些純技術的=。=</p>
+]]></content>
+  </entry>
+  
+</feed>
