@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://iwillwen.com/index.html</loc>
+    <loc>http://iwillwen.github.io/index.html</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://iwillwen.com/</loc>
+    <loc>http://iwillwen.github.io/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://iwillwen.com/tags/</loc>
+    <loc>http://iwillwen.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   

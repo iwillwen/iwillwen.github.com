@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hello Wen</title>
-    <link>http://iwillwen.com/</link>
+    <link>http://iwillwen.github.io/index.html</link>
     <description>Recent content on Hello Wen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://iwillwen.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://iwillwen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
